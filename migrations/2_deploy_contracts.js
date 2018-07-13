@@ -400,11 +400,16 @@ module.exports = async (deployer, network) => {
       // These only need to be deployed when testing
       if ( network != 'live' ) {
 
+          let rpOwnerAccount = accounts[0];
+          if( network == 'poa' ){
+            rpOwnerAccount = accounts[2];
+          }
+
           // Seed a user account which has signed the transaction used to create the RLP decoder
           // TX for the RLP DECODER CONTRACT HERE https://github.com/ethereum/vyper/blob/master/vyper/utils.py#L110
           console.log('\x1b[32m%s\x1b[0m', 'Casper - Seeding user account for RLP contract deploy');
           await $web3.eth.sendTransaction({
-            from: accounts[0],
+            from: rpOwnerAccount,
             to: '0xd2c560282c9C02465C2dAcdEF3E859E730848761',
             value: 6270960000000000,
             gas: 1000000,
@@ -416,12 +421,12 @@ module.exports = async (deployer, network) => {
           console.log('\x1b[32m%s\x1b[0m', 'Casper - Deploying Purity Checker');
           // Precompiled - Purity Checker
           const purityChecker = new $web3.eth.Contract(loadABI('./contracts/contract/casper/compiled/purity_checker.abi'), null, {
-            from: accounts[0], 
+            from: rpOwnerAccount, 
             gasPrice: '20000000000' // 20 gwei
           });
           // Deploy Purity Checker
           const purityCheckerContract = await purityChecker.deploy({data: '0x'+config.fs.readFileSync('./contracts/contract/casper/compiled/purity_checker.bin')}).send({
-                  from: accounts[0], 
+                  from: rpOwnerAccount, 
                   gas: 1500000, 
                   gasPrice: '20000000000'
           });
@@ -429,12 +434,12 @@ module.exports = async (deployer, network) => {
           console.log('\x1b[32m%s\x1b[0m', 'Casper - Deploying Sig Hasher');
           // Precompiled - Signature Hasher
           const sigHasher = new $web3.eth.Contract(loadABI('./contracts/contract/casper/compiled/sighash.abi'), null, {
-              from: accounts[0], 
+              from: rpOwnerAccount, 
               gasPrice: '20000000000' // 20 gwei
           });
           // Deploy Signature Hasher
           const sigHashContract = await sigHasher.deploy({data: '0x'+config.fs.readFileSync('./contracts/contract/casper/compiled/sighash.bin')}).send({
-                from: accounts[0], 
+                from: rpOwnerAccount, 
                 gas: 1500000, 
                 gasPrice: '20000000000'
           });
@@ -444,7 +449,7 @@ module.exports = async (deployer, network) => {
           // Note Casper is deployed as late as possible to make sure its initial current_epoch correctly (if many transactions occur after its deployment, block number will be too far for the correct epoch to be used)
           // Precompiled - Casper
           const casper = new $web3.eth.Contract(loadABI('./contracts/contract/casper/compiled/simple_casper.abi'), null, {
-              from: accounts[0], 
+              from: rpOwnerAccount, 
               gasPrice: '20000000000' // 20 gwei
           });
           // Deploy Casper
@@ -464,7 +469,7 @@ module.exports = async (deployer, network) => {
             {               
               data: casperBytecode
             }).send({
-                from: accounts[0], 
+                from: rpOwnerAccount, 
                 value: new $web3.utils.BN(casperBalance), // 5000 ETH starting balance for Casper
                 gas: 8000000, 
                 gasPrice: '20000000000'
@@ -475,7 +480,7 @@ module.exports = async (deployer, network) => {
           console.log('\x1b[32m%s\x1b[0m', 'Casper - Initialising');
           await casperContract.methods.init(...casperInit.init(sigHashContract._address, purityCheckerContract._address, web3.toWei('5', 'ether')))
             .send({
-              from: accounts[0], 
+              from: rpOwnerAccount, 
               gas: 3000000, 
               gasPrice: '20000000000'
             });
