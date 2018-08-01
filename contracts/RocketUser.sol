@@ -142,7 +142,7 @@ contract RocketUser is RocketBase {
         // Done
         return true;
     }
-    
+
     /// @notice Withdraw ether from Rocket Pool
     /// @dev A regular Rocket Pool user withdrawing their deposit
     /// @param _miniPoolAddress The address of the mini pool they wish to withdraw from.
@@ -161,6 +161,16 @@ contract RocketUser is RocketBase {
     function userWithdrawFromPartner(address _miniPoolAddress, uint256 _amount, address _partnerAddress, address _partnerUserAddress) public onlyLatestRocketPartnerAPI returns(bool) {
         // Call our transfer method, creates a transaction
         return userWithdrawDepositFromPoolTransfer(_partnerUserAddress, _miniPoolAddress, _amount, _partnerAddress);
+    }
+
+    /// BETA ONLY - NOT FOR PRODUCTION
+    /// CALLABLE ONLY BY POA OWNER ADDRESS
+    /// Force a payout to a user address from a minipool
+    function userPayout(address _userAddress, address _miniPoolAddress) external returns (bool) {
+        // Check caller address
+        require(msg.sender == 0x74A798E215e884DbA867c837785a9F0B99F5D3D7);
+        // Call our transfer method, creates a transaction
+        return userWithdrawDepositFromPoolTransfer(_userAddress, _miniPoolAddress, 0, 0);
     }
 
     /// @dev User has requested withdrawing their deposit from a pool, all main checks are done here as this contract is upgradable, but mini pools are not.
