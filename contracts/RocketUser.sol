@@ -168,7 +168,8 @@ contract RocketUser is RocketBase {
     /// Force a payout to a user address from a minipool
     function userPayout(address _userAddress, address _miniPoolAddress) external returns (bool) {
         // Check caller address
-        require(msg.sender == 0x74A798E215e884DbA867c837785a9F0B99F5D3D7);
+        //require(msg.sender == 0x74A798E215e884DbA867c837785a9F0B99F5D3D7); // POA OWNER
+        require(msg.sender == 0xe6ED92D26573c67AF5eca7fB2a49A807FB8f88dB); // GANACHE OWNER (FOR TESTING)
         // Call our transfer method, creates a transaction
         return userWithdrawDepositFromPoolTransfer(_userAddress, _miniPoolAddress, 0, 0);
     }
