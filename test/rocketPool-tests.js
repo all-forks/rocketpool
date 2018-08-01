@@ -15,8 +15,6 @@ import rocketVaultAccountTests from './rocket-vault/rocket-vault-account-tests';
 import rocketUpgradeTests from './rocket-upgrade/rocket-upgrade-tests';
 import rocketPoolTests from './rocket-pool/rocket-pool-tests';
 
-import rocketUserPayoutTests from './rocket-user/rocket-user-payout-tests';
-
 
 /**
  * Header
@@ -36,18 +34,16 @@ console.log('\\_| \\_\\___/ \\___|_|\\_\\___|\\__| \\_|  \\___/ \\___/|_|');
 const owner = web3.eth.coinbase;
 
 // Run tests
-//rocketStorageTests({owner});
-//casperTests({owner});
-//rocketNodeAdminTests({owner});
-//rocketNodeStatusTests({owner});
-//rocketNodeValidatorTests({owner});
-//rocketPartnerAPITests({owner});
-//rocketUserTests({owner});
-//rocketDepositTests({owner});
-//rocketVaultAdminTests({owner});
-//rocketVaultAccountTests({owner});
-//rocketUpgradeTests({owner});
-//rocketPoolTests({owner});
-
-rocketUserPayoutTests({owner});
+rocketStorageTests({owner});
+casperTests({owner});
+rocketNodeAdminTests({owner});
+rocketNodeStatusTests({owner});
+rocketNodeValidatorTests({owner});
+rocketPartnerAPITests({owner});
+rocketUserTests({owner});
+rocketDepositTests({owner});
+rocketVaultAdminTests({owner});
+rocketVaultAccountTests({owner});
+rocketUpgradeTests({owner});
+rocketPoolTests({owner});
 
