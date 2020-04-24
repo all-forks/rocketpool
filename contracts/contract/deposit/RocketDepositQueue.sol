@@ -99,7 +99,7 @@ contract RocketDepositQueue is RocketBase {
 
 
     // Default payable function - for deposit vault withdrawals
-    function() external payable onlyLatestContract("rocketDepositVault", msg.sender) {}
+    receive() external payable onlyLatestContract("rocketDepositVault", msg.sender) {}
 
 
     // Get the balance of the deposit queue by duration

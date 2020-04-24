@@ -68,7 +68,7 @@ contract RocketDeposit is RocketBase {
 
 
     // Default payable function - for deposit vault withdrawals or minipool refunds
-    function() external payable onlyDepositVaultOrMinipool() {}
+    receive() external payable onlyDepositVaultOrMinipool() {}
 
 
     // Create a new deposit

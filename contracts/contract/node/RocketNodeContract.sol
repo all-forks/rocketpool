@@ -185,7 +185,7 @@ contract RocketNodeContract {
 
 
     /// @dev Default payable method to receive minipool node withdrawals
-    function() external payable {}
+    receive() external payable {}
 
 
     /// @dev Reserves a deposit of Ether/RPL at the current rate. The node operator has 24hrs to deposit both once its locked in or it will expire.
