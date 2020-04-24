@@ -1,4 +1,4 @@
-pragma solidity 0.5.8;
+pragma solidity 0.6.6;
 
 contract RocketGroupAccessorContractInterface {
     function rocketpoolEtherDeposit() external payable returns (bool);

@@ -1,4 +1,4 @@
-pragma solidity 0.5.8;
+pragma solidity 0.6.6;
 
 contract PublisherInterface {
     function publish(bytes32 _event, bytes memory _payload) public;

@@ -1,4 +1,4 @@
-pragma solidity 0.5.8; 
+pragma solidity 0.6.6; 
 
 contract IntListStorageInterface {
     function getListCount(bytes32 _key) external view returns (uint);

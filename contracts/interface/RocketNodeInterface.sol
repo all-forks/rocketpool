@@ -1,4 +1,4 @@
-pragma solidity 0.5.8;
+pragma solidity 0.6.6;
 
 contract RocketNodeInterface {
     function getAvailableNodeCount(string memory _durationID) public returns (uint256);
