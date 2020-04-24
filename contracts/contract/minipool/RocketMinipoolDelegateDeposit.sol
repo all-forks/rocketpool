@@ -262,7 +262,7 @@ contract RocketMinipoolDelegateDeposit is RocketMinipoolBase {
         uint256 lastDepositIndex = depositIDs.length - 1;
         deposits[depositIDs[lastDepositIndex]].idIndex = currentDepositIndex;
         depositIDs[currentDepositIndex] = depositIDs[lastDepositIndex];
-        depositIDs.length--;
+        depositIDs.pop();
         // Delete deposit
         delete deposits[_depositID];
         // Fire the event
