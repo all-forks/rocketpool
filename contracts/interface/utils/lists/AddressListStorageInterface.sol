@@ -1,6 +1,6 @@
 pragma solidity 0.6.6; 
 
-contract AddressListStorageInterface {
+interface AddressListStorageInterface {
     function getListCount(bytes32 _key) external view returns (uint);
     function getListItem(bytes32 _key, uint _index) external view returns (address);
     function getListIndexOf(bytes32 _key, address _value) external view returns (int);

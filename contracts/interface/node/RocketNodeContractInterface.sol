@@ -1,15 +1,15 @@
 pragma solidity 0.6.6;
 
 
-contract RocketNodeContractInterface {
-    function getOwner() public view returns(address);
-    function getRewardsAddress() public view returns(address);
-    function getHasDepositReservation() public view returns(bool);
-    function getDepositReservedTime() public view returns(uint256);
-    function getDepositReserveEtherRequired() public returns(uint256);
-    function getDepositReserveRPLRequired() public returns(uint256);
-    function getDepositReserveDurationID() public returns (string memory);
-    function getDepositReserveValidatorPubkey() public returns (bytes memory);
-    function getDepositReserveValidatorSignature() public returns (bytes memory);
-    function getDepositReserveValidatorDepositDataRoot() public returns (bytes32);
+interface RocketNodeContractInterface {
+    function getOwner() external view returns(address);
+    function getRewardsAddress() external view returns(address);
+    function getHasDepositReservation() external view returns(bool);
+    function getDepositReservedTime() external view returns(uint256);
+    function getDepositReserveEtherRequired() external returns(uint256);
+    function getDepositReserveRPLRequired() external returns(uint256);
+    function getDepositReserveDurationID() external returns (string memory);
+    function getDepositReserveValidatorPubkey() external returns (bytes memory);
+    function getDepositReserveValidatorSignature() external returns (bytes memory);
+    function getDepositReserveValidatorDepositDataRoot() external returns (bytes32);
 }

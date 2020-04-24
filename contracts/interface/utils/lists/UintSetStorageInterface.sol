@@ -1,6 +1,6 @@
 pragma solidity 0.6.6; 
 
-contract UintSetStorageInterface {
+interface UintSetStorageInterface {
     function getCount(bytes32 _key) external view returns (uint);
     function getItem(bytes32 _key, uint _index) external view returns (uint);
     function getIndexOf(bytes32 _key, uint _value) external view returns (int);

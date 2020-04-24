@@ -1,5 +1,5 @@
 pragma solidity 0.6.6;
 
-contract DepositInterface {
-    function deposit(bytes memory _pubkey, bytes memory _withdrawalCredentials, bytes memory _signature, bytes32 _depositDataRoot) public payable;
+interface DepositInterface {
+    function deposit(bytes calldata _pubkey, bytes calldata _withdrawalCredentials, bytes calldata _signature, bytes32 _depositDataRoot) external payable;
 }

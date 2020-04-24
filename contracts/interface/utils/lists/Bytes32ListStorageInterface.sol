@@ -1,6 +1,6 @@
 pragma solidity 0.6.6; 
 
-contract Bytes32ListStorageInterface {
+interface Bytes32ListStorageInterface {
     function getListCount(bytes32 _key) external view returns (uint);
     function getListItem(bytes32 _key, uint _index) external view returns (bytes32);
     function getListIndexOf(bytes32 _key, bytes32 _value) external view returns (int);

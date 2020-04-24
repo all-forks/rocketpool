@@ -1,6 +1,6 @@
 pragma solidity 0.6.6; 
 
-contract IntListStorageInterface {
+interface IntListStorageInterface {
     function getListCount(bytes32 _key) external view returns (uint);
     function getListItem(bytes32 _key, uint _index) external view returns (int);
     function getListIndexOf(bytes32 _key, int _value) external view returns (int);

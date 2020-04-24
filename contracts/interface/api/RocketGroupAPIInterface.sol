@@ -2,8 +2,8 @@ pragma solidity 0.6.6;
 
 
 // Our group interface
-contract RocketGroupAPIInterface {
+interface RocketGroupAPIInterface {
     // Getters
-    function getGroupName(address _ID) public view returns (string memory);
-    function getGroupAccessAddress(address _ID) public view returns(address);
+    function getGroupName(address _ID) external view returns (string memory);
+    function getGroupAccessAddress(address _ID) external view returns(address);
 }

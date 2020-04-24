@@ -1,6 +1,6 @@
 pragma solidity 0.6.6; 
 
-contract BoolListStorageInterface {
+interface BoolListStorageInterface {
     function getListCount(bytes32 _key) external view returns (uint);
     function getListItem(bytes32 _key, uint _index) external view returns (bool);
     function getListIndexOf(bytes32 _key, bool _value) external view returns (int);

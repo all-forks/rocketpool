@@ -1,8 +1,8 @@
 pragma solidity 0.6.6; 
 
-contract AddressQueueStorageInterface {
-	function capacity() public view returns (uint);
-    function getQueueLength(bytes32 _key) public view returns (uint);
+interface AddressQueueStorageInterface {
+	function capacity() external view returns (uint);
+    function getQueueLength(bytes32 _key) external view returns (uint);
     function getQueueItem(bytes32 _key, uint _index) external view returns (address);
     function getQueueIndexOf(bytes32 _key, address _value) external view returns (int);
     function enqueueItem(bytes32 _key, address _value) external;

@@ -16,7 +16,6 @@ contract DummyRocketPoolToken is StandardToken, Ownable {
 
     string public name = "Rocket Pool";
     string public symbol = "RPL";
-    string public version = "1.0";
     uint8 public constant decimals = 18;
     uint256 public exponent = 10**uint256(decimals);
     uint256 public totalSupply = 0;                             // The current total supply

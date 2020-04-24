@@ -2,24 +2,24 @@ pragma solidity 0.6.6;
 
 
 // Our minipool interface
-contract RocketMinipoolSettingsInterface {
+interface RocketMinipoolSettingsInterface {
     // Getters
-    function getMinipoolLaunchAmount() public view returns (uint256);
-    function getMinipoolCanBeCreated() public returns (bool);
-    function getMinipoolNewEnabled() public view returns (bool);
-    function getMinipoolClosingEnabled() public view returns (bool);
-    function getMinipoolMax() public view returns (uint256);
-    function getMinipoolNewGas() public view returns (uint256);
-    function getMinipoolDepositGas() public view returns (uint256);
-    function getMinipoolStakingDurationCount() public view returns (uint256);
-    function getMinipoolStakingDurationAt(uint256 _index) public view returns (string memory);
-    function getMinipoolStakingDurationExists(string memory _duration) public view returns (bool);
-    function getMinipoolStakingDurationEpochs(string memory _duration) public view returns (uint256);
-    function getMinipoolStakingDurationEnabled(string memory _duration) public view returns (bool);
-    function getMinipoolCheckInterval() public view returns (uint256);
-    function getMinipoolWithdrawalFeeDepositAddress() public view returns (address);
-    function getMinipoolBackupCollectEnabled() public view returns (bool);
-    function getMinipoolBackupCollectDuration() public view returns (uint256);
-    function getMinipoolTimeout() public view returns (uint256);
-    function getMinipoolActiveSetSize() public view returns (uint256);
+    function getMinipoolLaunchAmount() external view returns (uint256);
+    function getMinipoolCanBeCreated() external returns (bool);
+    function getMinipoolNewEnabled() external view returns (bool);
+    function getMinipoolClosingEnabled() external view returns (bool);
+    function getMinipoolMax() external view returns (uint256);
+    function getMinipoolNewGas() external view returns (uint256);
+    function getMinipoolDepositGas() external view returns (uint256);
+    function getMinipoolStakingDurationCount() external view returns (uint256);
+    function getMinipoolStakingDurationAt(uint256 _index) external view returns (string memory);
+    function getMinipoolStakingDurationExists(string calldata _duration) external view returns (bool);
+    function getMinipoolStakingDurationEpochs(string calldata _duration) external view returns (uint256);
+    function getMinipoolStakingDurationEnabled(string calldata _duration) external view returns (bool);
+    function getMinipoolCheckInterval() external view returns (uint256);
+    function getMinipoolWithdrawalFeeDepositAddress() external view returns (address);
+    function getMinipoolBackupCollectEnabled() external view returns (bool);
+    function getMinipoolBackupCollectDuration() external view returns (uint256);
+    function getMinipoolTimeout() external view returns (uint256);
+    function getMinipoolActiveSetSize() external view returns (uint256);
 }
